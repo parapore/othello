@@ -1,22 +1,23 @@
 package to.msn.wings.othello;
 
+        import java.util.HashMap;
+        import java.util.Map;
+
 public class Stone {
     char color;
-    int x;
-    int y;
-    // 駒の(x,y)座標と駒の色をset
-    Stone(char color, int x, int y, Board b) {
-        this.color = color;
-        this.x = x;
-        this.y = y;
-    }
-    public static void main(String[] args) {
-        Board b = new Board(8);
-        Stone s = new Stone('黒',3,6,b);
-        Reverse r = new Reverse();
-        if(r.isPutOK(s, b) && r.isAllReverse(s,b)) {
-            b.setStoneInBoard(s, b);
-            r.reverseStone(s, b);
+    int position;
+    Map<Integer, Character> stoneMap = new HashMap<>(); // 石の場所と色を格納するmap
+
+    // 石の色と位置をセット
+    void setStone(int numberOfTurns, int position) {
+        if(numberOfTurns == -1) {
+            this.color = '*'; // 初期配置用
+        } else if(numberOfTurns % 2 == 0) {
+            this.color = '白';
+        } else {
+            this.color = '黒';
         }
+        this.position = position;
+        stoneMap.put(position, color);
     }
 }

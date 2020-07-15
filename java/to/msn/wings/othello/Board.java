@@ -3,6 +3,7 @@ package to.msn.wings.othello;
 // 盤面を生成するクラス
 public class Board {
     int numberOfLinesInBoard; // 盤面の行数。正方形。
+
     StringBuilder sb = new StringBuilder();
     StringBuilder sbBoard = new StringBuilder();
     // 盤面を文字列で生成。
@@ -41,15 +42,11 @@ public class Board {
         return result;
     }
     // 指定座標に石をセットする
-    public void setStoneInBoard(Stone s, Board b) {
-        int result = b.coordinateTransformation(s.x, s.y, b);
-        sbBoard.setCharAt(result, s.color);
+    void setStoneInBoard(Stone s, Board b) {
+
+        //sbBoard.setCharAt(s.position, s.color);
 		/*for(int i = 0; i < numberOfLinesInBoard; i++) {
 			System.out.println(sbBoard.substring(i*numberOfLinesInBoard, i*numberOfLinesInBoard+numberOfLinesInBoard));
 		}*/
-    }
-    // 実行部分は後で別クラスに移す
-    public static void main(String[] args) {
-        // TODO 自動生成されたメソッド・スタブ
     }
 }
